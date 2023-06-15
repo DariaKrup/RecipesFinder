@@ -22,7 +22,7 @@ Also it is impossible to choose category of dishes - for example, without meat o
 
   For example: `"add function", not "add function."`
 * First write what you did, then you did with what; and then the details in details field
-* Commit contains one completed change
+* Commit contains one completed change (!)
 * If number of letters is bigger then 50 than you should add empty string after main commit. After empty string it's body and before empty string it's title 
 
   The example, how to use commit rules:    
