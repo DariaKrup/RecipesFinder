@@ -35,10 +35,13 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    type = BuildTypeSettings.Type.COMPOSITE
+
     vcs {
         root(DslContext.settingsRoot)
 
         checkoutMode = CheckoutMode.ON_SERVER
+        showDependenciesChanges = true
     }
 
     steps {
