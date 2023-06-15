@@ -3,7 +3,7 @@ Perfect Android app for people who usually have problems with the choice of what
 Everything is simple: you should mark goods you have in your fridge in the list and then decide on appropriate recipe. 
 Special icons make choice easier - it will be clear which dishes are suitable for vegetarians, which are for people keen on spicy ingredients, etc.
 Also some recipes will be supported with video or photos to simplify process of cooking. 
-Futhermore, it is an option to add your own recipe and share it with all users.
+Futhermore, it is an option to add your own recipe and share it with all users (or the group).
 ## About analogues
 [Apps for searching recipes](https://play.google.com/store/apps/details?id=com.ggl.jr.cookbooksearchbyingredients&showAllReviews=true)
 are not optimal in searching recipes since a few recipes are offered, so many ingredients are necessary to buy additionally.
