@@ -37,6 +37,8 @@ object Build : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+
+        checkoutMode = CheckoutMode.ON_SERVER
     }
 
     steps {
