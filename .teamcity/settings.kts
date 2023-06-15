@@ -36,7 +36,6 @@ object Build : BuildType({
     name = "Build"
 
     enablePersonalBuilds = false
-    type = BuildTypeSettings.Type.COMPOSITE
     maxRunningBuilds = 1
 
     vcs {
