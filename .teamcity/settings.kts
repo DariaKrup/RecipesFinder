@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.amazonEC2CloudProfile
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -30,6 +31,21 @@ version = "2023.05"
 project {
 
     buildType(Build)
+
+    features {
+        amazonEC2CloudProfile {
+            id = "amazon-1"
+            name = "Cloud AWS Profile"
+            terminateIdleMinutes = 0
+            region = AmazonEC2CloudProfile.Regions.EU_WEST_DUBLIN
+            authType = accessKey {
+                keyId = "credentialsJSON:c4151395-a0a5-4db6-9697-918ebca829e5"
+                secretKey = "credentialsJSON:42f04976-3912-4b71-8161-3e9ca9484e7d"
+            }
+            param("terminateTimeOut_checkbox", "false")
+            param("terminate-after-build", "false")
+        }
+    }
 }
 
 object Build : BuildType({
