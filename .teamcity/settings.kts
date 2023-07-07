@@ -65,9 +65,8 @@ object Build : BuildType({
 
     enablePersonalBuilds = false
     maxRunningBuilds = 1
-
     params {
-        param("parameter_for_url", "")
+        param("parameter_for_url", "${DslContext.getParameter(name="serverUrl")}")
     }
 
     vcs {
