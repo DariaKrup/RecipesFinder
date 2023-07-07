@@ -66,6 +66,10 @@ object Build : BuildType({
     enablePersonalBuilds = false
     maxRunningBuilds = 1
 
+    params {
+        param("parameter_for_url", "")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
 
