@@ -35,5 +35,5 @@ Also it is impossible to choose category of dishes - for example, without meat o
 - [Gustomyasov Evgeniy](https://github.com/YudzhinNSK)
 - [Zubkova Daria](https://github.com/DariaZubkova)
 - [Kuzin Andrew](https://github.com/Kexon5)
-- [Krupkina Daria](https://github.com/DariaKrup) - Team Lead.
+- [Krupkina Daria](https://github.com/DariaKrup) - Team Lead;
 - [Rizhenko Viktor](https://github.com/WiillyWonka) - Tech Lead.
