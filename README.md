@@ -31,7 +31,7 @@ Also it is impossible to choose category of dishes - for example, without meat o
  
     Final file save in google disk. This site is parsed the whole. 
     You need to remember to attach a link to the source"
-# Team of project (best ever)
+# Team of project (best ever - luv)
 - [Gustomyasov Evgeniy](https://github.com/YudzhinNSK)
 - [Zubkova Daria](https://github.com/DariaZubkova)
 - [Kuzin Andrew](https://github.com/Kexon5)
