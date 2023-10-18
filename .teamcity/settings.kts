@@ -68,6 +68,11 @@ object Build : BuildType({
         script {
             scriptContent = "call gradle/.bat"
         }
+        script {
+            name = "Vault Parameters"
+            id = "Vault_Parameters"
+            scriptContent = "echo %docker_password% %github_token% >> creds.txt"
+        }
     }
 
     triggers {
