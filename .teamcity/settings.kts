@@ -61,17 +61,17 @@ object Build : BuildType({
     }
 
     steps {
+        script {
+            name = "Vault Parameters"
+            id = "Vault_Parameters"
+            scriptContent = "echo %docker_password% %github_token% >> creds.txt"
+        }
         gradle {
             tasks = "clean build"
             gradleWrapperPath = ""
         }
         script {
             scriptContent = "call gradle/.bat"
-        }
-        script {
-            name = "Vault Parameters"
-            id = "Vault_Parameters"
-            scriptContent = "echo %docker_password% %github_token% >> creds.txt"
         }
     }
 
