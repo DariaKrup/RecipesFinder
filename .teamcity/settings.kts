@@ -47,6 +47,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    params {
+        param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
