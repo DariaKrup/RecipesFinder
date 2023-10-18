@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultParameter
+import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -49,6 +50,10 @@ object Build : BuildType({
 
     params {
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
+        hashiCorpVaultParameter {
+            name = "github_token"
+            query = "passwords_storage_v1/github!/token"
+        }
     }
 
     vcs {
