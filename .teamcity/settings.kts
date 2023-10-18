@@ -37,6 +37,8 @@ project {
         hashiCorpVaultParameter {
             id = "PROJECT_EXT_14"
             name = "HashiCorp Vault AWS IAM"
+            namespace = "default"
+            vaultNamespace = "auth/aws"
             authMethod = iam()
         }
     }
