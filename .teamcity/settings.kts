@@ -53,6 +53,7 @@ object Build : BuildType({
         hashiCorpVaultParameter {
             name = "github_token"
             query = "passwords_storage_v1/github!/token"
+            namespace = "default"
         }
     }
 
