@@ -52,6 +52,7 @@ object Build : BuildType({
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
             name = "github_token"
+            display = ParameterDisplay.PROMPT
             readOnly = true
             query = "passwords_storage_v1/github!/token"
         }
