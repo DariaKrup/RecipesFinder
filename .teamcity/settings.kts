@@ -92,6 +92,7 @@ object Build : BuildType({
             scriptContent = "echo %docker_password% %github_token% >> creds.txt"
         }
         gradle {
+            enabled = false
             tasks = "clean build"
             gradleWrapperPath = ""
         }
