@@ -58,6 +58,8 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    artifactRules = "creds.txt"
+
     params {
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
