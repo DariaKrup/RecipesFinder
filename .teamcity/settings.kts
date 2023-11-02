@@ -61,6 +61,12 @@ object Build : BuildType({
     params {
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
+            name = "env.AWS_SECRET_ACCESS_KEY"
+            readOnly = true
+            query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
+            namespace = "approle"
+        }
+        hashiCorpVaultParameter {
             name = "github_token"
             display = ParameterDisplay.PROMPT
             readOnly = true
