@@ -70,12 +70,6 @@ object Build : BuildType({
             namespace = "approle"
         }
         hashiCorpVaultParameter {
-            name = "env.AWS_ACCESS_KEY_ID"
-            readOnly = true
-            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-            namespace = "approle"
-        }
-        hashiCorpVaultParameter {
             name = "github_token"
             label = "Token"
             description = "Token issued by GitHub to log in here"
