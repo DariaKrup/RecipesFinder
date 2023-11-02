@@ -96,9 +96,6 @@ object Build : BuildType({
             tasks = "clean build"
             gradleWrapperPath = ""
         }
-        script {
-            scriptContent = "call gradle/.bat"
-        }
     }
 
     triggers {
