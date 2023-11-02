@@ -40,6 +40,7 @@ project {
             name = "HashiCorp Vault AWS IAM"
             url = "https://vault.burnasheva.click:8200/"
             authMethod = iam()
+            failOnError = false
         }
     }
 }
