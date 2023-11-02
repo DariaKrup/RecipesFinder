@@ -75,7 +75,9 @@ object Build : BuildType({
         }
         hashiCorpVaultParameter {
             name = "env.AWS_ACCESS_KEY_ID"
+            readOnly = true
             query = "aws/data/access!/AWS_ACCESS_KEY_ID"
+            namespace = "approle"
         }
     }
 
