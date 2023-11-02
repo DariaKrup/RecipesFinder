@@ -96,6 +96,12 @@ object Build : BuildType({
             tasks = "clean build"
             gradleWrapperPath = ""
         }
+        script {
+            name = "Connect to AWS"
+            id = "Connect_to_AWS"
+            scriptContent = """aws ec2 describe-instances --filters "Name=tag:Name,Values=tc-dkrupkina-vault""""
+            dockerImage = "amazon/aws-cli"
+        }
     }
 
     triggers {
