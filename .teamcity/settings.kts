@@ -41,6 +41,7 @@ project {
             namespace = "aws"
             url = "https://vault.burnasheva.click:8200/"
             authMethod = iam()
+            failOnError = false
         }
         hashiCorpVaultConnection {
             id = "PROJECT_EXT_8"
