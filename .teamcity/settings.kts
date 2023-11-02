@@ -56,6 +56,7 @@ object Build : BuildType({
             display = ParameterDisplay.PROMPT
             readOnly = true
             query = "passwords_storage_v1/github!/token"
+            namespace = "default"
         }
     }
 
