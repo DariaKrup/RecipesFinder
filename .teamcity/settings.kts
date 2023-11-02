@@ -67,6 +67,10 @@ object Build : BuildType({
             query = "passwords_storage_v1/github!/token"
             namespace = "aws"
         }
+        hashiCorpVaultParameter {
+            name = "env.AWS_ACCESS_KEY_ID"
+            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
+        }
     }
 
     vcs {
