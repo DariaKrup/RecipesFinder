@@ -115,6 +115,11 @@ object Build : BuildType({
             scriptContent = """aws ec2 describe-instances --filters "Name=tag:Name,Values=tc-dkrupkina-vault""""
             dockerImage = "amazon/aws-cli"
         }
+        script {
+            name = "Parameter to file"
+            id = "Parameter_to_file"
+            scriptContent = "echo %AWS_ACCESS% %env.AWS_ACCESS_KEY_ID% >> aws.txt"
+        }
     }
 
     triggers {
