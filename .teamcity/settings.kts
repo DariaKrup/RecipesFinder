@@ -61,7 +61,6 @@ project {
         hashiCorpVaultConnection {
             id = "PROJECT_EXT_8"
             name = "HashiCorp Vault Local Approle"
-            namespace = "approle"
             url = "https://vault.burnasheva.click:8200"
             authMethod = appRole {
                 roleId = "e0d9ef3e-a837-c70c-ea96-46e9870e6567"
