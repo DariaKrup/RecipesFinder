@@ -88,6 +88,7 @@ object Build : BuildType({
             description = "Token issued by GitHub to log in here"
             display = ParameterDisplay.PROMPT
             query = "passwords_storage_v1/github!/token"
+            namespace = "aws"
         }
     }
 
