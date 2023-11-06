@@ -39,7 +39,6 @@ project {
             name = "env.AWS_SECRET_ACCESS_KEY"
             readOnly = true
             query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-            namespace = "approle"
         }
         hashiCorpVaultParameter {
             name = "env.AWS_ACCESS_KEY_ID"
