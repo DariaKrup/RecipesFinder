@@ -75,12 +75,6 @@ object Build : BuildType({
     artifactRules = "creds.txt"
 
     params {
-        hashiCorpVaultParameter {
-            name = "AWS_ACCESS"
-            readOnly = true
-            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-            namespace = "approle"
-        }
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
             name = "github_token"
