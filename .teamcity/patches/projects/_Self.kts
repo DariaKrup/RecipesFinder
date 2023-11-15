@@ -46,6 +46,7 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
+            param("teamcity.vault.requirement", "")
         }
     }
 }
