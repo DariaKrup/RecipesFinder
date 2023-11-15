@@ -76,10 +76,10 @@ object Build : BuildType({
     artifactRules = "creds.txt"
 
     params {
-        customHashiCorpVaultParameter {
+        /*customHashiCorpVaultParameter {
             name = "CUSTOM_DOCKER_PASSWORD"
             vaultQuery = "teamcity-custom-plugin-vault"
-        }
+        }*/
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
             name = "github_token"
