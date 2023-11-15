@@ -53,6 +53,12 @@ project {
             query = "aws/data/access!/AWS_ACCESS_KEY_ID"
             namespace = "approle"
         }
+        customHashiCorpVaultParameter {
+            name = "CUSTOM_AWS"
+            readOnly = true
+            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
+            namespace = "approle"
+        }
     }
 
     features {
@@ -83,6 +89,7 @@ object Build : BuildType({
             query = "passwords_storage_v1/github!/token"
             namespace = "approle"
         }
+        
     }
 
     vcs {
