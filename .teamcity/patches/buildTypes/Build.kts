@@ -4,7 +4,6 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -13,27 +12,6 @@ To apply the patch, change the buildType with id = 'Build'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("Build")) {
-    params {
-        expect {
-            hashiCorpVaultParameter {
-                name = "github_token"
-                label = "Token"
-                description = "Token issued by GitHub to log in here"
-                query = "passwords_storage_v1/github!/token"
-                namespace = "approle"
-            }
-        }
-        update {
-            hashiCorpVaultParameter {
-                name = "github_token"
-                label = "Token"
-                description = "Token issued by GitHub to log in here"
-                query = "passwords_storage_v1/github!/token"
-                namespace = "approle"
-            }
-        }
-    }
-
     expectSteps {
         script {
             name = "Vault Parameters"
