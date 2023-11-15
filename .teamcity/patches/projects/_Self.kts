@@ -14,6 +14,14 @@ accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
     params {
+        remove {
+            remote("RemoteParameter",
+                   remoteType = "RemoteParameterType",
+                   params = arrayOf(
+                       "property" to "value"
+                   )
+            )
+        }
         expect {
             hashiCorpVaultParameter {
                 name = "env.AWS_ACCESS_KEY_ID"
