@@ -47,18 +47,5 @@ changeProject(DslContext.projectId) {
         }
         feature1.apply {
         }
-        add {
-            hashiCorpVaultConnection {
-                id = "PROJECT_EXT_4"
-                name = "HashiCorp Vault LDAP"
-                namespace = "ldap"
-                authMethod = ldap {
-                    path = ""
-                    username = "admin"
-                    password = "credentialsJSON:0beca8d5-392d-4914-ab20-6446b5903c2f"
-                }
-                failOnError = false
-            }
-        }
     }
 }
