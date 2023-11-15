@@ -29,22 +29,6 @@ changeProject(DslContext.projectId) {
                 query = "aws/data/access!/AWS_ACCESS_KEY_ID"
             }
         }
-        expect {
-            hashiCorpVaultParameter {
-                name = "env.AWS_SECRET_ACCESS_KEY"
-                readOnly = true
-                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-                namespace = "approle"
-            }
-        }
-        update {
-            hashiCorpVaultParameter {
-                name = "env.AWS_SECRET_ACCESS_KEY"
-                readOnly = true
-                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-                namespace = "approle"
-            }
-        }
     }
 
     features {
@@ -61,6 +45,11 @@ changeProject(DslContext.projectId) {
             }
         }
         feature1.apply {
+            authMethod = appRole {
+                endpointPath = "approle"
+                roleId = "7c132444-a5c7-532e-4efe-a46e7104c560"
+                secretId = "credentialsJSON:e8cd7d12-4c3d-4b8d-9753-6db7ce4f2079"
+            }
             param("teamcity.vault.requirement", "")
         }
     }
