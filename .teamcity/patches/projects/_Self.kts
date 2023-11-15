@@ -16,6 +16,21 @@ changeProject(DslContext.projectId) {
     params {
         expect {
             hashiCorpVaultParameter {
+                name = "env.AWS_ACCESS_KEY_ID"
+                readOnly = true
+                query = "aws/data/access!/AWS_ACCESS_KEY_ID"
+                namespace = "approle"
+            }
+        }
+        update {
+            hashiCorpVaultParameter {
+                name = "env.AWS_ACCESS_KEY_ID"
+                readOnly = true
+                query = "aws/data/access!/AWS_ACCESS_KEY_ID"
+            }
+        }
+        expect {
+            hashiCorpVaultParameter {
                 name = "env.AWS_SECRET_ACCESS_KEY"
                 readOnly = true
                 query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
