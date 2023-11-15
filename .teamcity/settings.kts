@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.projectFeatures.awsConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -28,7 +29,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2023.05"
+version = "2023.11-eap2"
 
 project {
 
@@ -47,17 +48,20 @@ project {
             query = "aws/data/access!/AWS_ACCESS_KEY_ID"
             namespace = "approle"
         }
+        remote(name = "RemoteParameter", display = ParameterDisplay.PROMPT, readOnly = false,
+                remoteType = "RemoteParameterType", params = arrayOf(Pair("property", "value")))
+
     }
 
     features {
-        hashiCorpVaultConnection {
+        /*hashiCorpVaultConnection {
             id = "PROJECT_EXT_14"
             name = "HashiCorp Vault AWS IAM"
             namespace = "aws"
             url = "https://vault.burnasheva.click:8200/"
             authMethod = iam()
             failOnError = false
-        }
+        }*/
         hashiCorpVaultConnection {
             id = "PROJECT_EXT_8"
             name = "HashiCorp Vault Local Approle"
@@ -84,7 +88,7 @@ object Build : BuildType({
             description = "Token issued by GitHub to log in here"
             display = ParameterDisplay.PROMPT
             query = "passwords_storage_v1/github!/token"
-            namespace = "aws"
+            //namespace = "aws"
         }
     }
 
