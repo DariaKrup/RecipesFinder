@@ -78,6 +78,12 @@ object Build : BuildType({
             query = "passwords_storage_v1/github!/token"
             namespace = "approle"
         }
+        remote("RemoteParameter", display = ParameterDisplay.NORMAL,
+                remoteType = "RemoteParameterType",
+                params = arrayOf(
+                        "property" to "value"
+                )
+        )
     }
 
     vcs {
