@@ -28,7 +28,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2023.05"
+version = "2023.11"
 
 project {
 
@@ -75,6 +75,10 @@ object Build : BuildType({
     artifactRules = "creds.txt"
 
     params {
+        hashiCorpVaultParameter {
+            name = "CUSTOM_DOCKER_PASSWORD"
+            query = "passwords_storage_v1/docker!/password"
+        }
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
         hashiCorpVaultParameter {
             name = "github_token"
