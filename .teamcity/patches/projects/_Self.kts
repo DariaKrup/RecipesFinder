@@ -4,7 +4,6 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.projectFeatures.HashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
-import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -21,38 +20,6 @@ changeProject(DslContext.projectId) {
                        "property" to "value"
                    )
             )
-        }
-        expect {
-            hashiCorpVaultParameter {
-                name = "env.AWS_ACCESS_KEY_ID"
-                readOnly = true
-                query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-                namespace = "approle"
-            }
-        }
-        update {
-            hashiCorpVaultParameter {
-                name = "env.AWS_ACCESS_KEY_ID"
-                readOnly = true
-                query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-                namespace = "approle"
-            }
-        }
-        expect {
-            hashiCorpVaultParameter {
-                name = "env.AWS_SECRET_ACCESS_KEY"
-                readOnly = true
-                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-                namespace = "approle"
-            }
-        }
-        update {
-            hashiCorpVaultParameter {
-                name = "env.AWS_SECRET_ACCESS_KEY"
-                readOnly = true
-                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-                namespace = "approle"
-            }
         }
     }
 
