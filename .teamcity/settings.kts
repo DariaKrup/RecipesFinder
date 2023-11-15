@@ -2,8 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
-import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
+import jetbrains.buildServer.configs.kotlin.remoteParameters.customHashiCorpVaultParameter
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -35,42 +34,38 @@ project {
     buildType(Build)
 
     params {
-        hashiCorpVaultParameter {
-            name = "env.AWS_SECRET_ACCESS_KEY"
-            readOnly = true
-            query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-            namespace = "approle"
-        }
+        remote("env.AWS_SECRET_ACCESS_KEY", readOnly = true,
+               remoteType = "hashicorp-vault",
+               params = arrayOf(
+                   "teamcity_hashicorp_vault_vaultQuery" to "aws/data/access!/AWS_SECRET_ACCESS_KEY",
+                   "teamcity_hashicorp_vault_namespace" to "approle"
+               )
+        )
         remote("RemoteParameter", display = ParameterDisplay.PROMPT,
                remoteType = "RemoteParameterType",
                params = arrayOf(
                    "property" to "value"
                )
         )
-        hashiCorpVaultParameter {
-            name = "env.AWS_ACCESS_KEY_ID"
-            readOnly = true
-            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-            namespace = "approle"
-        }
-        customHashiCorpVaultParameter {
-            name = "CUSTOM_AWS"
-            readOnly = true
-            query = "aws/data/access!/AWS_ACCESS_KEY_ID"
-            namespace = "approle"
-        }
+        remote("env.AWS_ACCESS_KEY_ID", readOnly = true,
+               remoteType = "hashicorp-vault",
+               params = arrayOf(
+                   "teamcity_hashicorp_vault_vaultQuery" to "aws/data/access!/AWS_ACCESS_KEY_ID",
+                   "teamcity_hashicorp_vault_namespace" to "approle"
+               )
+        )
     }
 
     features {
-        hashiCorpVaultConnection {
+        feature {
             id = "PROJECT_EXT_8"
-            name = "HashiCorp Vault Local Approle"
-            namespace = "approle"
-            url = "https://vault.burnasheva.click:8200"
-            authMethod = appRole {
-                roleId = "e0d9ef3e-a837-c70c-ea96-46e9870e6567"
-                secretId = "credentialsJSON:7b85af73-566a-40d4-a6e6-1b7cb4ab7154"
-            }
+            type = "OAuthProvider"
+            param("role-id", "e0d9ef3e-a837-c70c-ea96-46e9870e6567")
+            param("displayName", "HashiCorp Vault Local Approle")
+            param("secure:secret-id", "credentialsJSON:7b85af73-566a-40d4-a6e6-1b7cb4ab7154")
+            param("namespace", "approle")
+            param("providerType", "teamcity-vault")
+            param("url", "https://vault.burnasheva.click:8200")
         }
     }
 }
@@ -81,19 +76,18 @@ object Build : BuildType({
     artifactRules = "creds.txt"
 
     params {
-        hashiCorpVaultParameter {
+        customHashiCorpVaultParameter {
             name = "CUSTOM_DOCKER_PASSWORD"
-            query = "passwords_storage_v1/docker!/password"
+            param("teamcity_hashicorp_vault_vaultQuery", "passwords_storage_v1/docker!/password")
         }
         param("docker_password", "%vault:passwords_storage_v1/docker!/password%")
-        hashiCorpVaultParameter {
-            name = "github_token"
-            label = "Token"
-            description = "Token issued by GitHub to log in here"
-            query = "passwords_storage_v1/github!/token"
-            namespace = "approle"
-        }
-        
+        remote("github_token", label = "Token", description = "Token issued by GitHub to log in here",
+               remoteType = "hashicorp-vault",
+               params = arrayOf(
+                   "teamcity_hashicorp_vault_vaultQuery" to "passwords_storage_v1/github!/token",
+                   "teamcity_hashicorp_vault_namespace" to "approle"
+               )
+        )
     }
 
     vcs {
