@@ -27,7 +27,7 @@ changeProject(DslContext.projectId) {
                 name = "env.AWS_SECRET_ACCESS_KEY"
                 readOnly = true
                 query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
-                namespace = "ldap"
+                namespace = "approle"
             }
         }
     }
