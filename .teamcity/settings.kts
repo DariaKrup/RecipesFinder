@@ -97,7 +97,7 @@ object Build : BuildType({
         script {
             name = "Vault Parameters"
             id = "Vault_Parameters"
-            scriptContent = "echo %docker_password% %RemoteParameter% >> creds.txt"
+            scriptContent = "echo %docker_password% %CUSTOM_DOCKER_PASSWORD% >> creds.txt"
         }
         gradle {
             enabled = false
