@@ -37,6 +37,7 @@ changeProject(DslContext.projectId) {
                     username = "admin"
                     password = "credentialsJSON:0beca8d5-392d-4914-ab20-6446b5903c2f"
                 }
+                failOnError = false
             }
         }
     }
