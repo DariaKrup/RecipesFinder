@@ -42,7 +42,7 @@ project {
             query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
             namespace = "approle"
         }
-        remote("RemoteParameter", display = ParameterDisplay.PROMPT,
+        remote("RemoteParameter", display = ParameterDisplay.NORMAL,
                remoteType = "RemoteParameterType",
                params = arrayOf(
                    "property" to "value"
