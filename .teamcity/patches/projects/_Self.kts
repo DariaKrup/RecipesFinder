@@ -30,6 +30,22 @@ changeProject(DslContext.projectId) {
                 namespace = "approle"
             }
         }
+        expect {
+            hashiCorpVaultParameter {
+                name = "env.AWS_SECRET_ACCESS_KEY"
+                readOnly = true
+                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
+                namespace = "approle"
+            }
+        }
+        update {
+            hashiCorpVaultParameter {
+                name = "env.AWS_SECRET_ACCESS_KEY"
+                readOnly = true
+                query = "aws/data/access!/AWS_SECRET_ACCESS_KEY"
+                namespace = "approle"
+            }
+        }
     }
 
     features {
