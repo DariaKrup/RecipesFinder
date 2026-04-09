@@ -10,6 +10,11 @@ To apply the patch, change the root project
 accordingly, and delete the patch script.
 */
 changeProject(DslContext.projectId) {
+    check(description == "") {
+        "Unexpected description: '$description'"
+    }
+    description = "Description"
+
     params {
         add {
             param("project_level_parameter", "parameter")
